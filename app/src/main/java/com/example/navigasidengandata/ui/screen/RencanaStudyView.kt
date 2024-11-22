@@ -174,7 +174,19 @@ fun RencanaStudyView(
                     )
                 }
                 Spacer(modifier = Modifier.padding(8.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    Button(onClick = { onBackButtonClicked() }) {
+                        Text(text = "Kembali")
+                    }
+                    Button(onClick = { onSubmitButtonClicked(listData) }, enabled = checked) {
+                        Text(text = "Lanjut")
+                    }
+                }
             }
         }
     }
 }
+
