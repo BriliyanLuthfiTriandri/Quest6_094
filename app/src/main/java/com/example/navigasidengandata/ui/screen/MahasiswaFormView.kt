@@ -96,5 +96,16 @@ fun MahasiswaFormView(
             }
         }
         Spacer(modifier = Modifier.padding(top = 16.dp))
+        Box(
+            modifier = Modifier
+                .background(
+                    color = Color.White,
+                    shape = RoundedCornerShape(
+                        topEnd = 15.dp,
+                        topStart = 15.dp
+                    )
+                )
+                .fillMaxWidth(),
+        )
     }
 }
