@@ -1,7 +1,9 @@
 package com.example.navigasidengandata.model
 
+
 data class Mahasiswa(
-    val nim:String = " ",
-    val nama:String = " ",
-    val email:String = " ",
+    val nim: String = " ",
+    val nama: String = " ",
+    val email: String = " ",
 )
+
