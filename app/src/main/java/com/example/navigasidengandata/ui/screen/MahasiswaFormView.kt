@@ -62,4 +62,11 @@ fun MahasiswaFormView(
 
     var listData: MutableList<String> = mutableListOf(nim, nama, email)
 
-}
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(
+                color = colorResource(id = R.color.primary)
+            ), horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+    }
