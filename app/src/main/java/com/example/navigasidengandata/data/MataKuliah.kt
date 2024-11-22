@@ -8,5 +8,5 @@ object MataKuliah {
         "Dasar Teknologi Informasi",
         "Fisika dan Elektronika",
         "Logika Teknik Informasi",
-        )
+    )
 }
