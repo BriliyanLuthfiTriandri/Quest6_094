@@ -80,6 +80,7 @@ fun RencanaStudyView(
                     .clip(shape = CircleShape)
                     .size(50.dp)
             )
+            Spacer(modifier = Modifier.padding(start = 16.dp))
         }
     }
 }
