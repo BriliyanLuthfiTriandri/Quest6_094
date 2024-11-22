@@ -37,19 +37,19 @@ fun TampilanDataView(
     mahasiswa: Mahasiswa,
     rencanaStudi: RencanaStudy,
     onBackButtonClicked: () -> Unit
-) {
+){
 
-    Column(
+    Column (
         modifier = Modifier
             .fillMaxSize()
             .background(color = colorResource(id = R.color.primary))
-    ) {
-        Row(
+    ){
+        Row (
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
-        ) {
+        ){
             Image(
                 painter = painterResource(id = R.drawable.logoumy),
                 contentDescription = "",
@@ -58,7 +58,7 @@ fun TampilanDataView(
                     .size(50.dp)
             )
             Spacer(modifier = Modifier.padding(start = 16.dp))
-            Column(modifier = Modifier.weight(1f)) {
+            Column (modifier = Modifier.weight(1f)) {
                 Text(
                     text = mahasiswa.nama,
                     fontWeight = FontWeight.Bold,
@@ -72,13 +72,77 @@ fun TampilanDataView(
                     color = Color.White
                 )
             }
-            Box {
+            Box{
                 Icon(
                     imageVector = Icons.Filled.Notifications,
                     contentDescription = "",
                     tint = Color.White
                 )
             }
+        }
+        Box(
+            modifier = Modifier
+                .background(
+                    color = Color.White,
+                    shape = RoundedCornerShape(
+                        topEnd = 15.dp,
+                        topStart = 15.dp
+                    )
+                )
+                .fillMaxSize()
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = "Data Diri",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 19.sp
+                )
+                Text(
+                    text = "Hasil Isi Rencana Studi kamu",
+                    fontSize = 14.sp
+                )
+                Spacer(modifier = Modifier.padding(8.dp))
+                TemplatesHasil(judulParam = "Nama" , isiParam = mahasiswa.nama)
+                Spacer(modifier = Modifier.padding(4.dp))
+                TemplatesHasil(judulParam = "NIM" , isiParam = mahasiswa.nim)
+                Spacer(modifier = Modifier.padding(4.dp))
+                TemplatesHasil(judulParam = "Email" , isiParam = mahasiswa.email)
+                Spacer(modifier = Modifier.padding(4.dp))
+                TemplatesHasil(judulParam = "Matakuliah" , isiParam = rencanaStudi.namaMk)
+                Spacer(modifier = Modifier.padding(4.dp))
+                TemplatesHasil(judulParam = "Kelas" , isiParam = rencanaStudi.kelas)
+                Spacer(modifier = Modifier.padding(16.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Button(
+                        onClick = { onBackButtonClicked() }
+                    ) {
+                        Text("Kembali ke Halaman Utama")
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun TemplatesHasil(judulParam:String, isiParam:String){
+    Column{
+        Row (
+            modifier = Modifier.fillMaxWidth().padding(8.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly
+
+        ) {
+            Text(judulParam, modifier = Modifier.weight(0.8f))
+            Text(":", modifier = Modifier.weight(0.2f))
+            Text(isiParam, modifier = Modifier.weight(2f))
         }
     }
 }
