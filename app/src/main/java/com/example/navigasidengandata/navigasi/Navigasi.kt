@@ -34,4 +34,20 @@ fun MahasiswaApp(
     navController: NavHostController = rememberNavController()
 
 ) {
+    val mahasiswaUiState = mahasiswaViewModel.mahasiswaUiState.collectAsState().value
+    val krsStateUi = RencanaStudyViewModel.krsStateUi.collectAsState().value
+
+    NavHost(
+        navController = navController,
+        startDestination = Halaman.Splash.name,
+        modifier = Modifier.padding()
+    ) {
+        composable(route = Halaman.Splash.name) {
+            SplashView(onMulaiButton = {
+                navController.navigate(
+                    Halaman.Mahasiswa.name
+                )
+            })
+        }
+    }
 }
